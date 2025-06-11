@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #001F54;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+        }
+
+        .nav-links li a:hover {
+            background: white;
+            color: #001F54;
+            border-radius: 4px;
+        }
+
+        /* Sign Up Page Styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 80px; /* to make room for navbar */
+            padding: 20px;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-group textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #E64A19;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        p b {
+            color: #FF5722;
+            cursor: pointer;
+        }
+
+        p b:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">MindFit</div>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        </ul>
+    </header>
+
+    <!-- Sign Up Page Content -->
+    <div class="container">
+        <form action="/signup" method="post">
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <i class='bx bxs-user'></i>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-mail-send'></i>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-calendar'></i>
+                <input type="number" id="age" name="age" placeholder="Age" min="1" max="120" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-male-female'></i>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-ruler'></i>
+                <input type="number" id="height" name="height" placeholder="Height (cm)" step="0.1" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-weight'></i>
+                <input type="number" id="weight" name="weight" placeholder="Weight (kg)" step="0.1" required>
+            </div>
+
+
+			<div class="input-group">
+                <i class='role'></i>
+                <select id="role" name="role" required>
+                    <option value="role" disabled selected>Select Role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+               
+                </select>
+            </div>
+
+
+            <div class="input-group">
+                <textarea id="bio" name="bio" placeholder="Bio"></textarea>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p>
+                Already have an account? <b onclick="window.location.href='/login'">Sign in here</b>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

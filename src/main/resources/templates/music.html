@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Music Guide</title>
+  <!-- Include FontAwesome for the back arrow icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+   /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF; /* White background */
+  color: #333;
+  text-align: center;
+  box-sizing: border-box; /* Ensures padding and border are included in element's width */
+}
+
+ header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+
+.back-link {
+  font-size: 1.5em;
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.back-link i {
+  font-size: 1.5em;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: 80px; /* Adjusting to account for the fixed header */
+}
+
+h1 {
+  font-size: 3em;
+  color: black; /* Changed the text color to black */
+  background-color: #E7F4FF; /* Light sky blue background for the h1 container */
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%; /* Make sure h1 spans the entire width */
+  margin-bottom: 20px; /* Move the text a little above */
+  margin-top: -40px; /* Added this line to shift the text container upwards */
+}
+
+.form-container {
+  background-color: #fff; /* White background for the form */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Responsive width for smaller screens */
+  max-width: 300px; /* Limit maximum width for narrow screens */
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50; /* Green background for the button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+  width: 100%; /* Full width button */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.music-list a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: block; /* Block for better vertical stacking */
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-list a:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    max-width: 400px; /* Larger screen */
+  }
+  
+  .music-list a {
+    font-size: 1.4em; /* Increase size on larger screens */
+  }
+}
+  .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1065px;
+    }
+
+</style>
+</head>
+<body>
+
+  <header>
+      <div class="logo">MindFit</div>
+    <a href="/mental-option" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Personalized Music</h1>
+    <div class="form-container">
+      <label for="music-mood">Define your music mood</label>
+      <select id="music-mood">
+        <option value="calm">Calm</option>
+        <option value="deep">Deep</option>
+        <option value="focus">Focus</option>
+      </select>
+      <button id="get-music">Get Music</button>
+    </div>
+
+    <div class="music-list">
+      <h2>Recommended Music based on your mood</h2>
+      <ul id="music-links"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic Music Recommendations
+    const musicMoodSelector = document.getElementById('music-mood');
+    const getMusicButton = document.getElementById('get-music');
+    const musicLinks = document.getElementById('music-links');
+
+    const musicRecommendations = {
+      calm: [
+        { text: 'Gentle Acoustic sitar', url: 'https://open.spotify.com/artist/1tXDFZbje7UGfRIQ2C7xXu?si=uNNYCHiRSzGrGjMS7Pu4MA' }, 
+        { text: 'Calm Piano Music', url: 'https://open.spotify.com/artist/4yNf9wUbfht6etRreqEtLk?si=qLdJTDU0TtuDJPSKBYjQSw' }
+      ],
+      deep: [
+        { text: 'Deep Sleep Music', url: 'https://open.spotify.com/playlist/37i9dQZF1DWYcDQ1hSjOpY?si=g0ypqZ0ER-yuRxTO9023AQ' },
+        { text: 'Relaxing Sleep Music', url: 'https://open.spotify.com/artist/6ow78JLrWSmpuyIq1ynex4?si=_wMDuGxtTd2aKPo8MIRthQ' }
+      ],
+      focus: [
+        { text: 'Soothing Nature Sounds', url: 'https://open.spotify.com/playlist/2sWwKJKAznIkvjoFRJ3ag3?si=umrBzDfPStyIq_Dg6gtdxw' },
+        { text: 'Night Rain Ambience', url: 'https://open.spotify.com/playlist/57MVA16MhfVYjt2Ws18Bgo?si=csO7hhvhSUyb9cfzacoQTA' }
+      ]
+    };
+
+    getMusicButton.addEventListener('click', () => {
+      const selectedMood = musicMoodSelector.value;
+      const recommendations = musicRecommendations[selectedMood] || [];
+
+      musicLinks.innerHTML = '';
+      recommendations.forEach(music => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = music.url;
+        a.target = '_blank';
+        a.textContent = music.text;
+        li.appendChild(a);
+        musicLinks.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

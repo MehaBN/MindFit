@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Mental Health Quiz</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    body {
+         background: linear-gradient(to right, #43cea2, #185a9d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Navigation Bar */
+    header {
+      background: rgba(0, 31, 84, 0.9);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+    /* Quiz Styles */
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 700px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 100px; /* Prevent overlap with navbar */
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #185a9d;
+      font-size: 2em;
+    }
+
+    .question {
+      margin-bottom: 25px;
+      font-size: 1.2em;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .options label {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .options input {
+      display: none;
+    }
+
+    .options input:not(:checked) + label:hover {
+      background-color: #e6e6e6;
+    }
+
+    .options input[type="radio"]:checked + label {
+      background-color: #43cea2;
+      color: white;
+      border-color: #43cea2;
+    }
+
+    button {
+      background: #FF5722;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      background: #E64A19;
+      transform: translateY(-3px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOutDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+      .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1000px;
+    }
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <div class="logo">MindFit</div>
+    <a href="/mental-option" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container" id="quizContainer">
+    <h2>Mental Health Quiz</h2>
+    <form id="quizForm">
+      <div class="question" id="questionsContainer"></div>
+      <button type="button" id="nextBtn">Next</button>
+      <button type="submit" id="submitBtn" class="hidden">Submit</button>
+    </form>
+  </div>
+
+  <script>
+  const questions = [
+      "How often do you feel stressed in a typical week?",
+      "Do you find it difficult to focus on tasks?",
+      "How often do you feel overwhelmed by emotions?",
+      "Do you experience difficulty sleeping due to your thoughts?",
+      "How often do you feel anxious without any apparent reason?",
+      "Do you find it challenging to maintain a healthy work-life balance?",
+      "How often do you feel like you're not in control of your emotions?",
+      "Do you feel isolated or lonely frequently?",
+      "How often do you experience mood swings?",
+      "Do you find it hard to relax or unwind after a busy day?"
+    ];
+
+    const options = ["Rarely", "Sometimes", "Often", "Always"];
+
+    let currentQuestionIndex = -1;
+
+    function showQuestion() {
+      const questionContainer = document.getElementById("questionsContainer");
+      questionContainer.innerHTML = `
+        <p>${currentQuestionIndex + 1}. ${questions[currentQuestionIndex]}</p>
+        <div class="options">
+          ${options.map((option, i) => `
+            <input type="radio" id="q${currentQuestionIndex + 1}-a${i + 1}" name="q${currentQuestionIndex + 1}" value="${i + 1}">
+            <label for="q${currentQuestionIndex + 1}-a${i + 1}">${option}</label>
+          `).join("")}
+        </div>`;
+      questionContainer.style.animation = 'fadeInUp 0.5s forwards';
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      showQuestion();
+    }
+
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+
+    nextBtn.addEventListener("click", function() {
+      const selectedOption = document.querySelector(`input[name="q${currentQuestionIndex + 1}"]:checked`);
+      if (!selectedOption) {
+        alert("Please select an answer before proceeding.");
+        return;
+      }
+
+      const questionContainer = document.getElementById("questionsContainer");
+      questionContainer.style.animation = 'fadeOutDown 0.5s forwards';
+
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        setTimeout(() => {
+          showQuestion();
+        }, 500);
+      } else {
+        nextBtn.classList.add("hidden");
+        submitBtn.classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+    	  event.preventDefault();
+
+    	  let totalScore = Array.from(document.querySelectorAll('input[type="radio"]:checked'))
+    	    .reduce((sum, answer) => sum + parseInt(answer.value), 0);
+
+    	  let feedback = "";
+    	  if (totalScore <= questions.length * 1) {
+    	    feedback = "Your mental health seems good. Keep maintaining a positive lifestyle!";
+    	  } else if (totalScore <= questions.length * 2) {
+    	    feedback = "You may experience occasional stress. Consider mindfulness practices.";
+    	  } else {
+    	    feedback = "It seems you're under significant stress. Seeking professional help may be beneficial.";
+    	  }
+
+
+    	  alert(feedback);
+
+    	  // Redirect to the /mental-option page
+    	  window.location.href = "/mental-option";
+    	});
+
+
+    nextQuestion();
+  </script>
+</body>
+</html>

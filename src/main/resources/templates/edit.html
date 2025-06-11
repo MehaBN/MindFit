@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+<body>
+    <h1>Edit User</h1>
+    <form th:action="@{/admin/users/edit}" method="post">
+        <input type="hidden" th:value="${user.id}" name="id" />
+        <label>Username:</label>
+        <input type="text" th:value="${user.username}" name="username" required />
+        <br>
+        <label>Email:</label>
+        <input type="email" th:value="${user.email}" name="email" required />
+        <br>
+        <label>Age:</label>
+        <input type="number" th:value="${user.age}" name="age" required />
+        <br>
+        <label>Gender:</label>
+        <input type="text" th:value="${user.gender}" name="gender" />
+        <br>
+        <label>Height:</label>
+        <input type="number" th:value="${user.height}" name="height" step="0.01" />
+        <br>
+        <label>Weight:</label>
+        <input type="number" th:value="${user.weight}" name="weight" step="0.01" />
+        <br>
+        <button type="submit">Save</button>
+    </form>
+    <a href="/admin/users">Back to User List</a>
+</body>
+</html>

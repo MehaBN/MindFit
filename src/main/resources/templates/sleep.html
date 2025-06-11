@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Sleep Guide</title>
+    <!-- Add Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+         header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+
+        .back-link {
+            font-size: 1.5em;
+            margin-right: 20px; /* Adjust space from logo */
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-link i {
+            font-size: 1.8em; /* Increase icon size */
+        }
+
+       
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin-top: 140px; /* Adjust for the fixed header */
+        }
+
+        form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        label {
+            margin-top: 15px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .result-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .personalized-sleep-guide {
+            background-color: #E7F4FF;
+            color: #001F54;
+            padding: 20px;
+            margin-top: 80px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes highlightText {
+            0% {
+                background-color: #f4f4f4;
+                color: #333;
+            }
+            50% {
+                background-color: #007BFF;
+                color: white;
+            }
+            100% {
+                background-color: #f4f4f4;
+                color: #333;
+            }
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .animated-text {
+            animation: highlightText 2s infinite;
+        }
+
+        .hidden {
+            display: none;
+        }
+          .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1065px;
+    }
+        
+    </style>
+</head>
+<body>
+
+<header>
+     <div class="logo">MindFit</div>
+    <a href="/mental-option" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+</header>
+
+
+<div class="personalized-sleep-guide">
+    <h2>Personalized Sleep Guide</h2>
+    <p>Discover personalized sleep tips based on your work routine. Fill out the form below to get your tailored recommendations.</p>
+</div>
+
+<main>
+    <form id="sleepForm">
+        <label for="profession">What is your profession?</label>
+        <select id="profession" required>
+            <option value="">Select...</option>
+            <option value="developer">Software Developer</option>
+            <option value="teacher">Teacher</option>
+            <option value="healthcare">Healthcare Worker</option>
+            <option value="student">Student</option>
+            <option value="manager">Manager</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="hours">How many hours do you work per day?</label>
+        <input type="number" id="hours" required min="1" max="24">
+
+        <button type="submit">Get Sleep Guide</button>
+    </form>
+
+    <div id="result" class="result-container hidden"></div>
+</main>
+
+<script>
+    document.getElementById('sleepForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const profession = document.getElementById('profession').value;
+        const hours = parseInt(document.getElementById('hours').value);
+        let sleepGuide = '';
+        let additionalTips = '';
+
+        if (hours > 8) {
+            sleepGuide = 'If you work more than 8 hours, aim for 7-8 hours of sleep.';
+            additionalTips = ''; // Additional tips here
+        } else if (hours < 6) {
+            sleepGuide = 'If you work less than 6 hours, aim for at least 7 hours of sleep.';
+            additionalTips = ''; // Additional tips here
+        } else {
+            sleepGuide = 'If you work between 6 to 8 hours, aim for 7-9 hours of sleep.';
+            additionalTips = ''; // Additional tips here
+        }
+
+        // Additional tips based on profession
+        if (profession === 'developer') {
+            additionalTips += '<li>Take breaks every hour to avoid mental fatigue.</li>';
+        } else if (profession === 'teacher') {
+            additionalTips += '<li>Try to get restful sleep to manage the stress of teaching.</li>';
+        } else if (profession === 'healthcare') {
+            additionalTips += '<li>Ensure proper sleep hygiene to handle long shifts.</li>';
+        } else if (profession === 'student') {
+            additionalTips += '<li>Avoid caffeine late in the day to improve your sleep quality.</li>';
+        } else if (profession === 'manager') {
+            additionalTips += '<li>Establish a consistent bedtime routine to improve your rest.</li>';
+        }
+
+        // Show result container and update content
+        document.getElementById('result').classList.remove('hidden');
+        document.getElementById('result').innerHTML = `
+            <h2>Sleep Guide</h2>
+            <p>${sleepGuide}</p>
+            <h3>Additional Tips:</h3>
+            <ul>${additionalTips}</ul>
+        `;
+    });
+</script>
+
+</body>
+</html>

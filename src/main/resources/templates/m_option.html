@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Choose Your Focus</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      padding-top: 60px; /* Space for fixed header */
+    }
+
+    /* Header / Navigation */
+    header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+
+    /* Main Container */
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 80px; /* Added space for the fixed header */
+      width: 100%; /* Take full width */
+      max-width: 600px; /* You can adjust the maximum width here */
+      margin-left: auto;
+      margin-right: auto; /* Center the container */
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 15px; /* Adds space between buttons */
+    }
+
+    .button {
+      padding: 20px 30px;
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+      position: relative;
+    }
+
+    .button:hover {
+      background-color: #27ae60;
+    }
+
+    .button .description {
+      display: block;
+      font-size: 12px;
+      color: #fff;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+      .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1065px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+      <div class="logo">MindFit</div>
+    <a href="/mindfit#featureButtons" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+       <li><a href="/mental-health">Quiz</a></li>
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>What Would You Like to Focus On?</h1>
+    <p>Choose an option below to get started.</p>
+    <div class="button-container">
+          <button class="button" onclick="navigateTo('ment_quiz')">
+        Mental Health quiz
+        <span class="description">Check your Mental state.</span>
+      <button class="button" onclick="navigateTo('meditation')">
+        Meditation
+        <span class="description">Relax your mind and reduce stress with guided meditation exercises.</span>
+      </button>
+      <button class="button" onclick="navigateTo('sleep')">
+        Sleep
+        <span class="description">Improve sleep quality with soothing sounds and techniques.</span>
+      </button>
+      <button class="button" onclick="navigateTo('music')">
+        Music
+        <span class="description">Listen to music designed to enhance concentration and focus.</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(option) {
+        if (option === 'ment_quiz') {
+            window.location.href = "/mental-health";
+        } else if (option === 'meditation') {
+        window.location.href = "/meditation"; // Replace with the actual meditation page URL
+      } else if (option === 'sleep') {
+        window.location.href = "/sleep"; // Replace with the actual sleep page URL
+      } else if (option === 'music') {
+        window.location.href = "/music"; // Replace with the actual music page URL
+      }
+    }
+  </script>
+
+</body>
+</html>
