@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Vegetarian Recipes</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #f9f7f3, #d9e4dd);
+      color: #333;
+     
+      line-height: 1.6;
+      height: 100vh; /* Full height for the body */
+      overflow: hidden; /* Prevent scrolling */
+    }
+  
+    /* Navigation Bar */
+  
+    .back-link {
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+  
+    .back-link:hover {
+      color: #FF5722;
+    }
+  
+   header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+  
+    /* Adjust body padding to avoid content being hidden behind navbar */
+    body {
+      padding-top: 60px;
+    }
+  
+    /* Container for main content */
+    .container {
+      width: 100%;
+      height: calc(100vh - 60px); /* Full height minus the navbar */
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow-y: auto; /* Allow scrolling if content overflows */
+    }
+  
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+      color: #4CAF50;
+    }
+  
+    .recipe {
+      margin-bottom: 30px;
+    }
+  
+    .recipe h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #FF5722;
+    }
+  /* Adjust image size to be responsive with a max width of 300px */
+/* Adjust image size to be responsive with a max width of 350px */
+.recipe img {
+  width: 200%;        /* Make the image responsive, so it adapts to the container's width */
+  max-width: 400px;   /* Maximum width to ensure it doesn't get too large */
+  height: auto;       /* Maintain aspect ratio */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+  
+    .recipe p {
+      margin-bottom: 10px;
+    }
+  
+    .recipe ul {
+      list-style: circle;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .interactive-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+  
+    .button {
+      background: #FF5722;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background 0.3s;
+    }
+  
+     .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1065px;
+    }
+  
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    
+  </style>
+  
+   
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">MindFit</div>
+    <a href="/veg" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Vegetarian Recipes</h1>
+    <p>Explore a variety of delicious and nutritious vegetarian recipes to complement your diet plan.</p>
+<!-- Recipe 1 -->
+<div class="recipe">
+  <h3>Quinoa Veggie Bowl</h3>
+  <img src="https://healthyfitnessmeals.com/wp-content/uploads/2018/08/Hummus-quinoa-veggie-bowl.jpg" alt="Quinoa Veggie Bowl">
+  <p><strong>Description:</strong> A protein-packed quinoa bowl loaded with fresh vegetables and a tangy lemon dressing.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup cooked quinoa</li>
+    <li>1/2 cup chopped cucumber</li>
+    <li>1/2 cup cherry tomatoes</li>
+    <li>1/4 cup diced red onion</li>
+    <li>1 tbsp olive oil</li>
+    <li>1 tbsp lemon juice</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Mix all ingredients in a bowl and serve fresh.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/uK4LibynqSk?si=VCLXYYwIf0cQW2qH" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 2 -->
+<div class="recipe">
+  <h3>Avocado Toast</h3>
+  <img src="https://www.eatingwell.com/thmb/PM3UlLhM0VbE6dcq9ZFwCnMyWHI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EatingWell-April-Avocado-Toast-Directions-04-5b5b86524a3d4b35ac4c57863f6095dc.jpg" alt="Avocado Toast">
+  <p><strong>Description:</strong> A simple yet delicious breakfast option made with creamy avocado on toasted bread.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 ripe avocado</li>
+    <li>2 slices of whole grain bread</li>
+    <li>Salt and pepper to taste</li>
+    <li>Optional: Red pepper flakes, lemon juice</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Toast the bread, mash the avocado, and spread it over the toast. Season with salt, pepper, and any additional toppings.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/dP6btliLGy4?si=zvYT78jG54CgulIJ" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 3 -->
+<div class="recipe">
+  <h3>Vegan Chickpea Salad</h3>
+  <img src="https://www.themediterraneandish.com/wp-content/uploads/2023/12/TMD-Chickpea-Salad-Leads-01-Angle-Vertical.jpg" alt="Vegan Chickpea Salad">
+  <p><strong>Description:</strong> A protein-rich, fresh salad made with chickpeas, cucumber, and tahini dressing.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup canned chickpeas, drained</li>
+    <li>1/2 cup cucumber, diced</li>
+    <li>1/4 cup red bell pepper, chopped</li>
+    <li>2 tbsp tahini</li>
+    <li>1 tbsp lemon juice</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Combine the ingredients in a bowl, drizzle with tahini dressing, and toss.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/lGBaLIB_aZE?si=-q1du0ntE2mET3A4" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 4 -->
+<div class="recipe">
+  <h3>Veggie Stir Fry</h3>
+  <img src="https://natashaskitchen.com/wp-content/uploads/2020/08/Vegetable-Stir-Fry-2.jpg" alt="Veggie Stir Fry">
+  <p><strong>Description:</strong> A quick and healthy stir fry with mixed vegetables and a savory sauce.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup mixed vegetables (bell peppers, broccoli, carrots)</li>
+    <li>1 tbsp soy sauce</li>
+    <li>1 tsp sesame oil</li>
+    <li>1 garlic clove, minced</li>
+    <li>1 tsp ginger, minced</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Stir fry the garlic and ginger in sesame oil, add the vegetables, and toss with soy sauce.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/spDs_wzn8To?si=05Xll8HAaR3r9zYr" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 5 -->
+<div class="recipe">
+  <h3>Vegetarian Burrito Bowl</h3>
+  <img src="https://shwetainthekitchen.com/wp-content/uploads/2020/06/IMG_9615-scaled.jpg" alt="Vegetarian Burrito Bowl">
+  <p><strong>Description:</strong> A colorful and satisfying vegetarian burrito bowl with rice, beans, vegetables, and guacamole.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup cooked brown rice</li>
+    <li>1/2 cup black beans, drained and rinsed</li>
+    <li>1/2 cup corn kernels (fresh or frozen)</li>
+    <li>1/4 cup diced bell peppers</li>
+    <li>1/4 cup diced red onion</li>
+    <li>1/4 cup fresh cilantro, chopped</li>
+    <li>1/2 avocado, sliced</li>
+    <li>1 tbsp lime juice</li>
+    <li>Sour cream or vegan alternative (optional)</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Layer the cooked rice, beans, corn, and vegetables in a bowl. Top with avocado, cilantro, and a squeeze of lime juice. Optionally add sour cream and season with salt and pepper.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/eYA1LHooerM?si=DT7PZSTzlLjJq3W7" target="_blank">video</a>.</p>
+</div>
+
+
+<!-- Recipe 7 -->
+<div class="recipe">
+  <h3>Chia Pudding</h3>
+  <img src="https://healthmylifestyle.com/wp-content/uploads/2024/03/warm-chia-pudding.jpg" alt="Chia Pudding">
+  <p><strong>Description:</strong> A creamy and nutritious chia pudding topped with fresh berries.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>3 tbsp chia seeds</li>
+    <li>1 cup almond milk</li>
+    <li>1 tbsp maple syrup</li>
+    <li>Fresh berries for topping</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Mix chia seeds, almond milk, and maple syrup. Let sit overnight in the fridge and top with berries.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/UCOe6lAKJ58?si=dSePV1x1dgZ2fzGK" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 8 -->
+<div class="recipe">
+  <h3>Vegan Banana Pancakes</h3>
+  <img src="https://www.inspiredtaste.net/wp-content/uploads/2020/04/Vegan-Pancakes-Recipe-2-1200-1200x800.jpg" alt="Vegan Pancakes">
+  <p><strong>Description:</strong> Fluffy vegan pancakes served with maple syrup and fresh fruit.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup flour</li>
+    <li>1 tbsp baking powder</li>
+    <li>1 cup almond milk</li>
+    <li>1 tbsp sugar</li>
+    <li>1 tsp vanilla extract</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Mix ingredients into a batter, cook on a pan, and serve with syrup and fruit.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/dKwgVI-_O6c?si=WMkWModu4EeJ-4g4" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 9 -->
+<div class="recipe">
+  <h3>Greek Salad</h3>
+  <img src="https://hedihearts.com/wp-content/uploads/2021/04/Easy-Greek-Salad-Recipe-9-scaled.jpg" alt="Greek Salad">
+  <p><strong>Description:</strong> A fresh salad with cucumbers, tomatoes, olives, and feta cheese, dressed in olive oil.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cucumber, diced</li>
+    <li>1 cup cherry tomatoes, halved</li>
+    <li>1/4 cup Kalamata olives</li>
+    <li>1/4 cup feta cheese, crumbled</li>
+    <li>2 tbsp olive oil</li>
+    <li>1 tbsp red wine vinegar</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Combine ingredients in a bowl and toss with olive oil and vinegar.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/dDhOpHcAJGo?si=4xrCtM55OvP-jLMy" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 10 -->
+<div class="recipe">
+  <h3>Oatmeal with Banana and Almonds</h3>
+  <img src="https://images.mrcook.app/recipe-image/01918d71-f85e-7a19-bf27-68d6b8ee72c1" alt="Oatmeal with Banana and Almonds">
+  <p><strong>Description:</strong> A warm and filling oatmeal topped with banana slices and almonds.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1/2 cup rolled oats</li>
+    <li>1 cup water or almond milk</li>
+    <li>1 banana, sliced</li>
+    <li>1 tbsp almonds, chopped</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Cook the oats with water or almond milk, then top with banana slices and chopped almonds.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/TywIQRspW98?si=gFnqk8QTBb3K5bbj" target="_blank">video</a>.</p>
+</div>
+
+<!-- Recipe 11 -->
+<div class="recipe">
+  <h3>Veggie Tacos</h3>
+  <img src="https://www.simplyrecipes.com/thmb/Vw6TDXD2gW87OU1PNWPfNsKaD84=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Veggie-Tacos-LEAD-2-2fa9781c94da4b9797af48af47313854.jpg" alt="Veggie Tacos">
+  <p><strong>Description:</strong> Tasty tacos filled with sautéed vegetables and avocado.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 cup bell peppers, sliced</li>
+    <li>1/2 cup onions, sliced</li>
+    <li>1/2 cup zucchini, chopped</li>
+    <li>2 soft tortillas</li>
+    <li>1/4 cup guacamole</li>
+  </ul>
+  <h4>Preparation:</h4> 
+  <p>Sauté the vegetables, warm the tortillas, and fill with the veggies and guacamole.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/tyekUvDGthc?si=PIZ26m9d_xjaDdnG" target="_blank">video</a>.</p>
+</div>
+
+
+    <!-- Interactive Buttons -->
+    <div class="interactive-buttons">
+      <button class="button button-back" onclick="goBack()">Back to Diet Plan</button>
+    
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2024 MindFit. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Navigation functions
+    function goBack() {
+      window.location.href = "/veg"; // Replace with the correct filename
+    }
+
+    function goNext() {
+      window.location.href = "more-veg-recipes.html"; // Replace with the correct filename for more recipes
+    }
+  </script>
+</body>
+</html>

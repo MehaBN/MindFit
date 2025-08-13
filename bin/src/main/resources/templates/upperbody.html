@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Upper Body Workouts</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      color: #333;
+      line-height: 1.6;
+      padding-top: 60px;
+    }
+
+    header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #f5f5f5; /* Changed background color for outer container */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+      color: #FF5722;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .calendar .day {
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .calendar .day:hover {
+      background: #FF5722; 
+      color: white; 
+      transform: scale(1.05);
+    }
+
+    .workout-tracker {
+      display: none; 
+      margin-top: 20px; 
+      background-color: white; /* Set workout tracker container color to white */
+      padding: 30px; 
+      border-radius: 8px; 
+    }
+
+    .workout-tracker h3 {
+      text-align: center; 
+      margin-bottom: 20px; 
+    }
+
+    .exercise {
+       display:flex; 
+       justify-content :space-between; /* Space between info and gif */
+       align-items:center; /* Center items vertically */
+       margin-bottom :15px; 
+       border-bottom :1px solid #ccc; 
+       padding-bottom :10px; 
+     }
+
+     .exercise img {
+       width :300px; /* Increased GIF size */
+       height :auto; /* Maintain aspect ratio */
+       border-radius :5px
+     }
+
+     .exercise .info {
+        flex-grow :1; 
+        display:flex; 
+        flex-direction :column; /* Stack elements vertically */
+        align-items:flex-start; /* Align text to the left */
+        gap:.5rem; /* Space between elements */
+     }
+
+     .exercise span.name {
+       font-size :1.5em; /* Increase visibility of exercise name */
+       font-weight :bold; /* Make exercise name bold */
+     }
+    
+     .exercise input[type="number"] {
+       width :60px ; 
+       margin-left:.5rem
+     }
+    
+     .exercise button {
+       background-color:#4CAF50; 
+       color:white; 
+       padding:.5rem .75rem; 
+       border:none; 
+       border-radius:.5rem; 
+       cursor:pointer
+     }
+    
+     .exercise button.completed {
+     
+       background-color:#388E3C
+     }
+    
+     /* Timer Adjustment */
+     .adjust-timer {
+       display:flex; 
+       align-items:center
+     }
+    
+     .adjust-timer input[type="number"] {
+       width:auto; 
+       margin-left:.5rem
+     }
+     .navigation-buttons {
+      display: flex;
+      justify-content: center; 
+      gap: 1rem; 
+      margin-top: 20px;
+    }
+
+    .navigation-buttons button {
+      background-color: #001F54;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .navigation-buttons button:hover {
+      background-color: #FF5722;
+      transform: scale(1.05);
+    }
+
+    .navigation-buttons button:active {
+      transform: scale(0.95);
+    }
+      .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1065px;
+    }
+
+    
+    
+   </style>
+</head>
+<body>
+  
+<header>
+     <div class="logo">MindFit</div>
+    <a href="/workout" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+</header>
+
+<div class="container">
+   <h1>Upper Body Workouts</h1>
+
+   <!-- Workout Calendar Section -->
+   <h2>Workout Schedule</h2>
+   <div class="calendar">
+     <div class="day" onclick="showWorkout('Monday')">Monday</div>
+     <div class="day" onclick="showWorkout('Tuesday')">Tuesday</div>
+     <div class="day" onclick="showWorkout('Wednesday')">Wednesday</div>
+     <div class="day" onclick="showWorkout('Thursday')">Thursday</div>
+     <div class="day" onclick="showWorkout('Friday')">Friday</div>
+     <div class="day" onclick="showWorkout('Saturday')">Saturday</div>
+     <div class="day" onclick="showWorkout('Sunday')">Sunday</div>
+   </div>
+
+   <!-- Workout Tracker -->
+   <div id="workoutTracker" class="workout-tracker">
+     <h3 id="workoutDay">Workout</h3>
+     <div id="workoutContent"></div>
+   </div>
+</div>
+<div class="navigation-buttons">
+     <button onclick="navigateTo('/workout')">Go to Workout Page</button>
+     <button onclick="navigateTo('/lowerbody')">Go to Lower Body Workouts</button>
+   </div>
+<script>
+// Sample workout data
+const workouts = {
+ Monday:[
+	 { name:"Arm Swings", gif:"/upperbody/Arm Swings _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Big Arm Circles", gif:"/upperbody/Big Arm Circles _ Illustrated Exercise Guide.gif", timer :40 },
+   { name:"Deadlift Upright Row", gif:"/upperbody/Deadlift Upright Row _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Dumbbell Bent Over Row", gif:"/upperbody/Dumbbell Bent Over Row _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Dumbbell Front Raise", gif:"/upperbody/Dumbbell Front Raise _ Illustrated Exercise Guide.gif", timer :30 },
+ ],
+ Tuesday:[
+   { name:"Dumbbell Lateral Raise", gif:"/upperbody/Dumbbell Lateral Raise _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Half Squat Jab Cross", gif:"/upperbody/Half Squat Jab Cross _ Illustrated Exercise Guide.gif", timer :40 },
+   { name:"Inchworm", gif:"/upperbody/Inchworm _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Tricep Dips", gif:"/upperbody/Tricep Dips _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Sumo Side Bends", gif:"/upperbody/Sumo Side Bends _ Illustrated Exercise Guide.gif", timer :30 },
+ ],
+ Wednesday:[
+	 { name:"Arm Swings", gif:"/upperbody/Arm Swings _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Big Arm Circles", gif:"/upperbody/Big Arm Circles _ Illustrated Exercise Guide.gif", timer :40 },
+   { name:"Deadlift Upright Row", gif:"/upperbody/Deadlift Upright Row _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Dumbbell Bent Over Row", gif:"/upperbody/Dumbbell Bent Over Row _ Illustrated Exercise Guide.gif", timer :30 },
+   { name:"Dumbbell Front Raise", gif:"/upperbody/Dumbbell Front Raise _ Illustrated Exercise Guide.gif", timer :30 },
+ ],
+ Thursday:[
+	   { name:"Dumbbell Lateral Raise", gif:"/upperbody/Dumbbell Lateral Raise _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Half Squat Jab Cross", gif:"/upperbody/Half Squat Jab Cross _ Illustrated Exercise Guide.gif", timer :40 },
+	   { name:"Inchworm", gif:"/upperbody/Inchworm _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Tricep Dips", gif:"/upperbody/Tricep Dips _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Sumo Side Bends", gif:"/upperbody/Sumo Side Bends _ Illustrated Exercise Guide.gif", timer :30 },
+	 ],
+	 Friday:[
+		 { name:"Arm Swings", gif:"/upperbody/Arm Swings _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Big Arm Circles", gif:"/upperbody/Big Arm Circles _ Illustrated Exercise Guide.gif", timer :40 },
+	   { name:"Deadlift Upright Row", gif:"/upperbody/Deadlift Upright Row _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Dumbbell Bent Over Row", gif:"/upperbody/Dumbbell Bent Over Row _ Illustrated Exercise Guide.gif", timer :30 },
+	   { name:"Dumbbell Front Raise", gif:"/upperbody/Dumbbell Front Raise _ Illustrated Exercise Guide.gif", timer :30 },
+	 ],
+	 Saturday:[
+		   { name:"Dumbbell Lateral Raise", gif:"/upperbody/Dumbbell Lateral Raise _ Illustrated Exercise Guide.gif", timer :30 },
+		   { name:"Half Squat Jab Cross", gif:"/upperbody/Half Squat Jab Cross _ Illustrated Exercise Guide.gif", timer :40 },
+		   { name:"Inchworm", gif:"/upperbody/Inchworm _ Illustrated Exercise Guide.gif", timer :30 },
+		   { name:"Tricep Dips", gif:"/upperbody/Tricep Dips _ Illustrated Exercise Guide.gif", timer :30 },
+		   { name:"Sumo Side Bends", gif:"/upperbody/Sumo Side Bends _ Illustrated Exercise Guide.gif", timer :30 },
+		 ],
+ // Add more workouts for other days as needed
+ Sunday:[]
+};
+
+function showWorkout(day) {
+ const workoutTracker = document.getElementById("workoutTracker");
+ const workoutDay = document.getElementById("workoutDay");
+ const workoutContent = document.getElementById("workoutContent");
+
+ workoutDay.innerText = `${day} Workout`;
+ workoutContent.innerHTML = "";
+
+ if (workouts[day].length === 0) {
+   workoutContent.innerHTML = "<p>Rest Day! Enjoy and recover.</p>";
+ } else {
+   workouts[day].forEach((exercise, index) => {
+     const div = document.createElement("div");
+     div.classList.add("exercise");
+
+     div.innerHTML = `
+       <div class="info">
+         <span class="name">${exercise.name}</span> <!-- Exercise Name -->
+         <span class="timer-display" id="timer-${index}">${exercise.timer}s</span> <!-- Timer Display -->
+         <span class='adjust-timer'>
+           Adjust Timer:
+           <input type='number' id='adjust-${index}' value='${exercise.timer}' min='1' max='300' />
+           seconds
+         </span> <!-- Adjust Timer -->
+       </div>
+       <img src="${exercise.gif}" alt="${exercise.name} GIF"> <!-- GIF Image -->
+       <button onclick="startTimer(${index}, this)">Start Timer</button> <!-- Start Timer Button -->
+     `;
+     
+     workoutContent.appendChild(div);
+   });
+ }
+ workoutTracker.style.display = "block";
+}
+
+function startTimer(index, button) {
+ const timerInput = document.getElementById(`adjust-${index}`);
+ let duration = parseInt(timerInput.value);
+ const timerElement = document.getElementById(`timer-${index}`);
+
+ button.disabled = true;
+
+ const interval = setInterval(() => {
+   duration--;
+   timerElement.innerText = `${duration}s`;
+
+   if (duration <= 0) {
+     clearInterval(interval);
+     timerElement.innerText = "Completed!";
+     button.innerText = "Completed";
+     button.classList.add("completed");
+   }
+ },1000);
+}
+
+function navigateTo(path) {
+	  window.location.href = path;
+	}
+</script>
+
+
+
+</body>
+</html>

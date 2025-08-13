@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Meditation</title>
+
+  <!-- Add Font Awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #E7F4FF;
+      color: #fff;
+      padding-top: 100px;
+      line-height: 1.6;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+     header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .back-link {
+      font-size: 1.5em;
+      margin-right: 20px; /* Adjust space from logo */
+      color: white;
+      text-decoration: none;
+    }
+
+    .back-link i {
+      font-size: 1.8em; /* Increase icon size */
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    
+    .container {
+      width: 100%; /* Set container width to full screen */
+      margin: 0 auto;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tips, .videos, .timer, .journal {
+      margin-bottom: 20px;
+    }
+
+    .tips h2, .videos h2, .timer h2, .journal h2 {
+      color: #4CAF50;
+    }
+
+    .tips ul, .videos ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .tips ul li, .videos ul li {
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .timer button, .journal button {
+      background: #FF5722;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .timer button:hover, .journal button:hover {
+      background: #E64A19;
+    }
+
+    .journal textarea {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 1em;
+    }
+
+    /* Breathe Timer CSS */
+    #circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #43cea2;
+      margin: 20px auto;
+    }
+
+    .breathing-animation {
+      animation: breathe 4s infinite;
+    }
+
+    @keyframes breathe {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #breathingTimer {
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+
+    #popupMessage {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    #popupMessage p {
+      margin: 0;
+      font-size: 1.2em;
+    }
+      .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1000px;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+      <div class="logo">MindFit</div>
+    <a href="/mental-option" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <div class="container">
+    <h1>Meditation</h1>
+    <p>Welcome to the Meditation page. Explore tips, guided videos, and interactive features for your mental well-being journey.</p>
+
+    <!-- Tips Section -->
+    <div class="tips">
+      <h2>Meditation Tips</h2>
+      <ul>
+        <li>Find a quiet and comfortable space for your practice.</li>
+        <li>Start with just 5-10 minutes a day and gradually increase the duration.</li>
+        <li>Focus on your breathing to bring your attention to the present moment.</li>
+        <li>Be consistent with your practice for better results.</li>
+        <li>Don’t judge your thoughts—just observe and let them pass.</li>
+        <li>Use the <strong>4-7-8 Breathing Technique</strong>: Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds.</li>
+        <li>Practice <strong>Lotus Pose</strong> for better posture: Sit cross-legged with your feet on opposite thighs, keeping your back straight.</li>
+      </ul>
+    </div>
+
+    <!-- Videos Section -->
+    <div class="videos">
+      <h2>Guided Meditation Videos</h2>
+
+      <!-- Beginner Video -->
+      <div class="video-container">
+        <h3>Beginner: 5-Minute Meditation</h3>
+        <iframe src="https://www.youtube.com/embed/inpok4MKVLM" allowfullscreen></iframe>
+      </div>
+
+      <!-- Intermediate Video -->
+      <div class="video-container">
+        <h3>Intermediate: 10-Minute Mindfulness Meditation</h3>
+        <iframe src="https://www.youtube.com/embed/z6X5oEIg6Ak" allowfullscreen></iframe>
+      </div>
+
+      <!-- Advanced Video -->
+      <div class="video-container">
+        <h3>Advanced: 20-Minute Deep Meditation</h3>
+        <iframe src="https://www.youtube.com/embed/GTdEJwVOxg0" allowfullscreen></iframe>
+      </div>
+
+      <!-- Stress Relief Video -->
+      <div class="video-container">
+        <h3>Stress Relief: Guided Breathing Exercise</h3>
+        <iframe src="https://www.youtube.com/embed/VUjiXcfKBn8" allowfullscreen></iframe>
+      </div>
+
+      <!-- Sleep Meditation Video -->
+      <div class="video-container">
+        <h3>Sleep Meditation: Fall Asleep Fast</h3>
+        <iframe src="https://www.youtube.com/embed/r8urDUqqot8" allowfullscreen></iframe>
+      </div>
+
+      <!-- Focus Meditation Video -->
+      <div class="video-container">
+        <h3>Focus Meditation: Improve Concentration</h3>
+        <iframe src="https://www.youtube.com/embed/zSkFFW--Ma0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Meditation Timer Section -->
+    <div class="timer">
+      <h2>Meditation Timer</h2>
+      <p>Set a timer for your meditation practice.</p>
+      <input type="time" id="timer" min="00:01" max="02:00" value="00:10">
+      <button onclick="startTimer()">Start Timer</button>
+      <p id="timerOutput"></p>
+    </div>
+
+    <!-- Breathe Timer Section -->
+    <div class="container">
+      <h1>Breathe Timer</h1>
+      <div id="circle"></div>
+
+      <label for="hours">Hours:</label>
+      <input type="number" id="hours" min="0" max="99" placeholder="HH">
+      <label for="minutes">Minutes:</label>
+      <input type="number" id="minutes" min="0" max="59" placeholder="MM">
+      <label for="seconds">Seconds:</label>
+      <input type="number" id="seconds" min="0" max="59" placeholder="SS">
+
+      <button onclick="startBreathing()">Start Breathing Exercise</button>
+
+      <p id="breathingTimer">Time remaining: 00:00:00</p>
+    </div>
+
+    <div id="popupMessage">
+      <p>Successfully Completed!</p>
+    </div>
+  </div>
+
+  <script>
+    // Meditation Timer Function
+    function startTimer() {
+      const timerInput = document.getElementById("timer");
+      const time = timerInput.value.split(":");
+      const minutes = parseInt(time[0]);
+      const seconds = parseInt(time[1]);
+      const totalTimeInSeconds = (minutes * 60) + seconds;
+
+      let remainingTime = totalTimeInSeconds;
+
+      const timerOutput = document.getElementById("timerOutput");
+
+      const interval = setInterval(() => {
+        remainingTime--;
+        const mins = Math.floor(remainingTime / 60);
+        const secs = remainingTime % 60;
+        timerOutput.textContent = `Time remaining: ${mins}:${secs < 10 ? "0" : ""}${secs}`;
+
+        if (remainingTime <= 0) {
+          clearInterval(interval);
+          timerOutput.textContent = "Meditation Time is Over! Well done!";
+        }
+      }, 1000);
+    }
+
+    // Breathing Animation Function
+    function startBreathing() {
+      const hours = parseInt(document.getElementById("hours").value) || 0;
+      const minutes = parseInt(document.getElementById("minutes").value) || 0;
+      const seconds = parseInt(document.getElementById("seconds").value) || 0;
+
+      const totalTimeInSeconds = (hours * 3600) + (minutes * 60) + (seconds);
+
+      if (totalTimeInSeconds <= 0) {
+        alert("Please enter a valid meditation duration.");
+        return;
+      }
+
+      const circle = document.getElementById("circle");
+      circle.classList.add("breathing-animation");
+
+      let remainingTime = totalTimeInSeconds;
+
+      const countdownElement = document.getElementById("breathingTimer");
+      countdownElement.textContent = `Time remaining: ${formatTime(remainingTime)}`;
+
+      const interval = setInterval(() => {
+        remainingTime--;
+        countdownElement.textContent = `Time remaining: ${formatTime(remainingTime)}`;
+
+        if (remainingTime <= 0) {
+          clearInterval(interval);
+          circle.classList.remove("breathing-animation");
+          showPopupMessage("Successfully Completed!");
+        }
+      }, 1000);
+    }
+
+    // Format time for display (HH:MM:SS)
+    function formatTime(seconds) {
+      const hrs = Math.floor(seconds / 3600);
+      const mins = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+
+      return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Show Popup Message
+    function showPopupMessage(message) {
+      const popup = document.getElementById("popupMessage");
+      popup.style.display = "block";
+      popup.querySelector("p").textContent = message;
+
+      setTimeout(() => {
+        popup.style.opacity = 0;
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 500);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

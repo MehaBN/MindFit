@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Workout Selection</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 60px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(-45deg, #43cea2, #185a9d, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+   header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+   .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1000px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 120px auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      color: #000000;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #000000;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .option {
+      display: block;
+      background: linear-gradient(to right, #43c6ac, #28a745);
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      font-size: 1.2em;
+    }
+
+    .option:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: white;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MindFit</div>
+    <a href="/physical-option" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Select Your Workout</h1>
+    <p>Choose between upper body and lower body workout plans tailored to your fitness goals.</p>
+
+    <div class="options">
+      <a href="/upperbody" class="option">Upper Body Workouts</a>
+      <a href="/lowerbody" class="option">Lower Body Workouts</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 MindFit. All Rights Reserved.
+  </footer>
+</body>
+</html>

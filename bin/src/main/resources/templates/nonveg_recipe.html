@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Non-Vegetarian Diet</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #E7F4FF;
+      color: #333;
+     
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+ 
+    /* Back arrow */
+    .back-link {
+      color: white;
+      font-size: 2em;
+      font-weight: bold; /* Make the arrow bold */
+      text-decoration: none;
+      margin-right: 10px; /* Slight margin for space between arrow and logo */
+    }
+
+    .back-link:hover {
+      color: #FF5722;
+    }
+
+     header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+ .button:hover {
+      background: #E64A19;
+    }
+
+    .diet-plan h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+    .button-back {
+      background: #4CAF50;
+    }
+
+    .button-back:hover {
+      background: #388E3C;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+
+
+    /* Adjust body padding to avoid content being hidden behind navbar */
+    body {
+      padding-top: 60px;
+    }
+
+    .container {
+      width: 100%; 
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+      color: #FF5722;
+    }
+
+    .diet-plan {
+      margin-bottom: 30px;
+    }
+
+    .diet-plan h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+    .diet-plan img {
+  width: 450px;  /* Increased width */
+  height: 400px; /* Adjusted height to keep proportions balanced */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.interactive-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+
+    .diet-plan ul {
+      list-style: circle;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .interactive-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .button {
+      background: #FF5722;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background 0.3s;
+    }
+
+    .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1000px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+     <div class="logo">MindFit</div>
+    <a href="/nonveg" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Non-Vegetarian Diet</h1>
+    <p>Discover a balanced non-vegetarian diet plan that includes essential proteins and nutrients to keep you healthy.</p>
+
+    <!-- Diet Plan 1 -->
+<div class="diet-plan">
+  <h3>High-Protein Chicken Salad</h3>
+  <img src="/phots/image1.jpg" alt="High-Protein Chicken Salad">
+  <p><strong>Description:</strong> A refreshing salad with grilled chicken, leafy greens, and a tangy vinaigrette.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>150g grilled chicken breast</li>
+    <li>1 cup mixed greens (lettuce, spinach, arugula)</li>
+    <li>1/4 cup cherry tomatoes</li>
+    <li>2 tbsp olive oil</li>
+    <li>1 tbsp lemon juice</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Combine all ingredients in a bowl, toss with olive oil and lemon juice, and serve fresh.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtube.com/shorts/LR_ytRmLNh0?si=hvcklSD-JtHqQ2kf" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 2 -->
+<div class="diet-plan">
+  <h3>Grilled Salmon with Vegetables</h3>
+  <img src="/phots/image2.jpg" alt="Grilled Salmon with Vegetables">
+  <p><strong>Description:</strong> A nutrient-rich meal featuring omega-3-packed salmon with grilled vegetables.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>200g salmon fillet</li>
+    <li>1/2 cup zucchini, sliced</li>
+    <li>1/2 cup bell peppers, sliced</li>
+    <li>1 tbsp olive oil</li>
+    <li>1 tsp paprika</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Marinate salmon and vegetables in olive oil and spices, then grill for 10-15 minutes.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/-mMxDYa1tmo?si=5DIZXSGRCWgKTi3V" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 3 -->
+<div class="diet-plan">
+  <h3>Egg and Avocado Toast</h3>
+  <img src="/phots/image3.jpg" alt="Egg and Avocado Toast">
+  <p><strong>Description:</strong> A quick and nutritious breakfast packed with healthy fats and proteins.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>2 slices whole-grain bread</li>
+    <li>1 ripe avocado</li>
+    <li>2 boiled or poached eggs</li>
+    <li>Salt, pepper, and chili flakes to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Spread mashed avocado on toast, top with sliced eggs, and season with salt and chili flakes.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtube.com/shorts/ymg3Y2d5C-4?si=xuJ2sFIzVxoQr9Lh" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 4 -->
+<div class="diet-plan">
+  <h3>Grilled Chicken with Quinoa Salad</h3>
+  <img src="/phots/chicken-quinoa-bowl __4.jpg" alt="Grilled Chicken with Quinoa Salad">
+  <p><strong>Description:</strong> A balanced meal featuring lean grilled chicken served with a nutritious quinoa salad.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>200g grilled chicken breast</li>
+    <li>1 cup cooked quinoa</li>
+    <li>1/4 cup cucumber, diced</li>
+    <li>1/4 cup red bell pepper, diced</li>
+    <li>1 tbsp olive oil</li>
+    <li>1 tbsp lemon juice</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Combine quinoa, cucumber, and bell pepper in a bowl. Drizzle with olive oil, lemon juice, and season with salt and pepper. Serve with grilled chicken.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/xizRTIcMaic?si=7RD0N-_rsALPIfEB" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 5 -->
+<div class="diet-plan">
+  <h3>Turkey and Avocado Wrap</h3>
+  <img src="/phots/Turkey-and-Avocado-Wrap.jpg" alt="Turkey and Avocado Wrap">
+  <p><strong>Description:</strong> A healthy wrap featuring lean turkey and creamy avocado for a fulfilling snack or lunch.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>100g sliced turkey breast</li>
+    <li>1 ripe avocado</li>
+    <li>2 whole-wheat tortillas</li>
+    <li>1/4 cup mixed greens (lettuce, spinach)</li>
+    <li>1 tbsp mustard</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Spread mustard on the tortilla, layer turkey, avocado slices, and mixed greens. Roll up the tortilla and cut in half to serve.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/lPaiK0vTPeI?si=bKO-a5fzP_dhkCMj" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 6 -->
+<div class="diet-plan">
+  <h3>Spicy Shrimp Tacos</h3>
+  <img src="/phots/spicy-shrimp-tacos-snippet 6.jpg" alt="Spicy Shrimp Tacos">
+  <p><strong>Description:</strong> Flavorful shrimp tacos with a spicy kick, served with a side of crunchy slaw.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>200g shrimp, peeled and deveined</li>
+    <li>1 tsp chili powder</li>
+    <li>1 tsp cumin</li>
+    <li>2 small corn tortillas</li>
+    <li>1/2 cup cabbage, shredded</li>
+    <li>1 tbsp lime juice</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Season shrimp with chili powder, cumin, salt, and pepper. Cook in a skillet until pink. Serve on tortillas with shredded cabbage and a squeeze of lime.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/r_Tmh-rm07M?si=RD9NO21PTEV_Qc0J" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 7 -->
+<div class="diet-plan">
+  <h3>Chicken Fajita Recipe</h3>
+  <img src="/phots/Flavorful-Chicken-Fajitas_10.jpg" alt="Chicken Fajita Recipe">
+  <p><strong>Description:</strong> A flavorful and spicy dish that combines the goodness of chicken, bell peppers, onions, and a savory sauce.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>1 pound boneless, skinless chicken breasts, cut into thin strips</li>
+    <li>1/2 cup lime juice</li>
+    <li>1/4 cup olive oil</li>
+    <li>2 cloves garlic, minced</li>
+    <li>1 teaspoon dried oregano</li>
+    <li>1/2 teaspoon ground cumin</li>
+    <li>1/4 teaspoon cayenne pepper</li>
+    <li>1 large onion, sliced</li>
+    <li>2 large bell peppers (any color), sliced</li>
+    <li>8 small flour tortillas</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Marinate the chicken in lime juice, olive oil, garlic, oregano, cumin, and cayenne pepper for at least 30 minutes. Grill or cook the chicken and vegetables in a skillet until the chicken is cooked through and the vegetables are tender. Serve with warm flour tortillas.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/g-LT0igt9lo?si=nLxlJU_gxjyviKAG" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 8 -->
+<div class="diet-plan">
+  <h3>Lentil and Chicken Soup</h3>
+  <img src="/phots/fg-chicken-lentil-soup 7.jpg" alt="Lentil and Chicken Soup">
+  <p><strong>Description:</strong> A hearty and comforting soup made with lentils and chicken for a nutritious meal.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>200g chicken breast, shredded</li>
+    <li>1 cup lentils, rinsed</li>
+    <li>1 carrot, diced</li>
+    <li>1 onion, chopped</li>
+    <li>2 garlic cloves, minced</li>
+    <li>4 cups chicken broth</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Cook the chicken and vegetables in a pot. Add lentils and chicken broth. Simmer for 25-30 minutes until lentils are tender. Season with salt and pepper to taste.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/4Sjd-F6FtTU?si=k1vhCnGxNCwY5ku7" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 9 -->
+<div class="diet-plan">
+  <h3>Spinach, Mushroom, and Feta Stuffed Chicken Breast</h3>
+  <img src="/phots/img8.jpg" alt="Spinach, Mushroom, and Feta Stuffed Chicken Breast">
+  <p><strong>Description:</strong> A flavorful and nutritious dish that combines the goodness of chicken, spinach, mushrooms, and feta cheese for a protein-packed meal.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>4 boneless, skinless chicken breasts</li>
+    <li>1 cup fresh spinach, chopped</li>
+    <li>1/2 cup mushrooms, sliced</li>
+    <li>1/4 cup feta cheese, crumbled</li>
+    <li>2 tablespoons olive oil</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Preheat the oven to 375°F (190°C). Slice the chicken breasts to create pockets, stuff with spinach, mushrooms, and feta. Secure with toothpicks. Cook in a skillet with olive oil, then bake in the oven for 20 minutes.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/V8UocdMjbbM?si=P8Ql0dSmss9XuQek" target="_blank">video</a>.</p>
+</div>
+
+<!-- Diet Plan 10 -->
+<div class="diet-plan">
+  <h3>Vegetable Stir-Fry with Tofu</h3>
+  <img src="/phots/Swanson-Chicken-and-Vegetable-Stir-Fry-9.jpg" alt="Vegetable Stir-Fry with Tofu">
+  <p><strong>Description:</strong> A delicious stir-fry made with tofu and a variety of colorful vegetables, perfect for a quick and healthy meal.</p>
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>200g tofu, cubed</li>
+    <li>1 bell pepper, sliced</li>
+    <li>1 zucchini, sliced</li>
+    <li>1/2 cup broccoli florets</li>
+    <li>1 tablespoon soy sauce</li>
+    <li>1 tablespoon sesame oil</li>
+    <li>1 teaspoon ginger, grated</li>
+  </ul>
+  <h4>Preparation:</h4>
+  <p>Heat sesame oil in a pan, stir-fry tofu until golden. Add vegetables and ginger, and stir-fry until tender. Drizzle with soy sauce and serve.</p>
+  <h4>Video Reference:</h4>
+  <p>For a step-by-step guide, watch this <a href="https://youtu.be/BQa1wMo2_-8?si=27t31JU9U5e-crWe" target="_blank">video</a>.</p>
+</div>
+
+    <!-- Interactive Buttons -->
+    <div class="interactive-buttons">
+      <button class="button button-back" onclick="goBack()">Back to Diet Plan</button>
+    </div>
+  </div>
+
+ 
+
+  <script>
+    // Navigation functions
+    function goBack() {
+      window.location.href = "/dietplan"; // Replace with the correct filename
+    }
+
+    function goNext() {
+      window.location.href = "/nonveg-recipe"; // Replace with the correct filename for more recipes
+    }
+  </script>
+</body>
+</html>

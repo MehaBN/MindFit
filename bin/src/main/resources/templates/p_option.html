@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindFit - Choose Your Focus</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      color: #fff;
+    
+      line-height: 1.6;
+    }
+
+    h1, p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header {
+      background-color: #001F54;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+.logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+    }
+
+    .nav-links li a:hover {
+      background: white;
+      color: #001F54;
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .option-card {
+      display: block;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .option-card h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    .option-card p {
+      font-size: 1.1em;
+    }
+
+    .option-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+      .back-button {
+      background: #2ecc71;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background: #27ae60;
+      transform: translateX(-5px);
+    }
+
+    .nav-container {
+      margin-left: 1060px;
+    }
+    
+
+    /* Navigation Bar */
+  
+    /* Adjust body padding to avoid content being hidden behind navbar */
+    body {
+      padding-top: 60px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+      <div class="logo">MindFit</div>
+    <a href="/mindfit#featureButtons" class="back-button">← Back</a>
+    <div class="nav-container">
+      <ul class="nav-links">
+       <li><a href="/physical-health">Quiz</a></li>
+            <li><a href="/mindfit">Home</a></li>
+     <li><a href="/userprofile">Profile</a></li>
+     <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Choose Your Focus</h1>
+    <p>What would you like to focus on next? Select one of the options below to proceed.</p>
+    <div class="options">
+         <a href="/physical-health" class="option-card">
+        <h2>Physical health quiz</h2>
+        <p>check your physical state.</p>
+      </a>
+      <a href="/workout" class="option-card">
+        <h2>Workout</h2>
+        <p>Explore workout plans tailored to your fitness level and goals.</p>
+      </a>
+      <a href="/dietplan" class="option-card">
+        <h2>Diet Plan</h2>
+        <p>Discover personalized diet plans to improve your nutrition and health.</p>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

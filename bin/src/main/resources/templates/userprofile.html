@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to right, #43cea2, #185a9d); /* Background Gradient */
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #001F54;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+        }
+
+        .nav-links li a:hover {
+            background: white;
+            color: #001F54;
+            border-radius: 4px;
+        }
+
+        /* Profile Page Styling */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 80px; /* to make room for navbar */
+            padding: 20px;
+            background-color: white; /* White background for container */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Box shadow for container */
+            width: 100%;
+            max-width: 600px; /* Max width for content */
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .profile-container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .profile-container p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .logout-link,
+        .edit-profile-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FF5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .logout-link:hover,
+        .edit-profile-link:hover {
+            background-color: #E64A19;
+        }
+
+        /* Center the profile container vertically */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">MindFit</div>
+        <ul class="nav-links">
+            <li><a href="/mindfit">Home</a></li>
+            <li><a href="/userprofile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </header>
+
+    <!-- Profile Page Content -->
+    <div class="profile-container">
+        <h1>Welcome, <span th:text="${user.username}">[Username]</span>!</h1>
+        <p><strong>Email:</strong> <span th:text="${user.email}">[Email]</span></p>
+        <p><strong>Age:</strong> <span th:text="${user.age}">[Age]</span></p>
+        <p><strong>Bio:</strong> <span th:text="${user.bio}">[Bio]</span></p>
+        <p><strong>Gender:</strong> <span th:text="${user.gender}">[Gender]</span></p>
+        <p><strong>Height:</strong> <span th:text="${user.height}">[Height]</span></p>
+        <p><strong>Weight:</strong> <span th:text="${user.weight}">[Weight]</span></p>
+
+        <!-- Edit Profile Button -->
+        <a href="/userprofile/edit" class="edit-profile-link">Edit Profile</a>
+
+        <!-- Logout Button -->
+        <a href="/mindfit" class="logout-link">Home</a>
+    </div>
+</body>
+
+</html>
