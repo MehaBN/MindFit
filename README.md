@@ -1,1 +1,1 @@
-Spring Boot java + Thymeleaf project!!.
+Spring Boot java + Thymeleaf project!.
